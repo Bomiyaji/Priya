@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Priya</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Priya</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Background Particles Container -->
-    <div id="particles-js"></div>
+<!-- Floating Sparkles -->
+<div class="sparkles"></div>
 
-    <!-- Background Music -->
-    <!-- Replace 'assets/music.mp3' with your own file -->
-    <audio id="bg-music" loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+<!-- ENTRY SCREEN -->
+<div id="entryScreen" class="entry-screen">
+  <div class="glass-card">
+    <h2>This page is made for someone special.</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <button onclick="checkName()">Enter</button>
+    <p id="response"></p>
+  </div>
+</div>
 
-    <!-- Music Toggle Button -->
-    <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
-        <span class="icon">♫</span>
-        <span class="tooltip">Play Music</span>
-    </button>
+<!-- MAIN CONTENT -->
+<div id="mainContent" class="hidden">
 
-    <!-- Section 1: Intro -->
-    <section id="intro" class="screen">
-        <div class="content-wrapper">
-            <h1 id="main-title" class="title">Welcome Priya</h1>
-            <p id="sub-title" class="subtitle">Some names are special. Yours is unforgettable.</p>
-            <button id="enter-btn" class="enter-button">Enter</button>
-        </div>
-    </section>
+  <!-- Welcome Section -->
+  <section class="hero">
+    <h1 class="reveal">Hi Priya.</h1>
+    <p class="reveal delay">Some connections don’t announce themselves.</p>
+    <p class="reveal delay2">They just start meaning more.</p>
+  </section>
 
-    <!-- Section 2: The Message -->
-    <section id="message" class="screen hidden">
-        <div class="letter-container">
-            <p class="salutation">Priya,</p>
-            
-            <div class="poem">
-                <p>Some people walk into life quietly</p>
-                <p>and change everything without trying.</p>
-            </div>
+  <!-- Timeline -->
+  <section class="timeline">
+    <h2>Moments</h2>
+    <div class="timeline-item" onclick="toggleMessage(this)">
+      The First Hello
+      <span class="timeline-msg">It looked simple. It wasn’t.</span>
+    </div>
+    <div class="timeline-item" onclick="toggleMessage(this)">
+      Random Conversations
+      <span class="timeline-msg">Somehow they became important.</span>
+    </div>
+    <div class="timeline-item" onclick="toggleMessage(this)">
+      Unexpected Smiles
+      <span class="timeline-msg">That’s when something quietly changed.</span>
+    </div>
+    <div class="timeline-item" onclick="toggleMessage(this)">
+      Somewhere It Changed
+      <span class="timeline-msg">And I didn’t even notice when.</span>
+    </div>
+  </section>
 
-            <p class="body-text">
-                There is something rare about you.<br>
-                It is not loud, not dramatic, but <span class="highlight">unforgettable</span>.
-            </p>
-            
-            <p class="body-text">
-                This page exists for one simple reason — <br>
-                because you do.
-            </p>
+  <!-- Love Meter -->
+  <section class="love-section">
+    <button onclick="startMeter()">Curious?</button>
+    <div class="meter">
+      <div id="progressBar"></div>
+    </div>
+    <p id="meterText"></p>
+  </section>
 
-            <div class="signature">
-                With sincere admiration,
-            </div>
-        </div>
-    </section>
+  <!-- Final Section -->
+  <section class="final">
+    <div class="overlay">
+      <p class="fade-final">This might be one sided.</p>
+      <p class="fade-final delay">But it’s honest.</p>
+      <p class="fade-final delay2">And sometimes honesty is enough.</p>
+      <h3>— Raj</h3>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
