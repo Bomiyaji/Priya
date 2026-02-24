@@ -4,275 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Priya</title>
-    
-    <!-- Google Fonts: Playfair Display for elegance, Montserrat for readability -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- RESET & BASE STYLES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #050505; /* Deepest Black */
-            color: #f0f0f0;
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            height: 100vh;
-            width: 100%;
-        }
-
-        /* --- CANVAS BACKGROUND --- */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .gold-text {
-            color: #d4af37; /* Metallic Gold */
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-
-        /* --- SECTIONS --- */
-        .section {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        /* Section 1: Welcome */
-        #welcome-section {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #welcome-section.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .intro-text {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0; /* Start hidden for JS animation */
-            transform: translateY(20px);
-            transition: opacity 2s ease, transform 2s ease;
-            text-align: center;
-        }
-
-        .sub-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #a8a8a8;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 2s ease 1s, transform 2s ease 1s; /* 1s delay */
-            text-align: center;
-            max-width: 80%;
-        }
-
-        /* Section 2: Message */
-        #message-section {
-            opacity: 0;
-            visibility: hidden;
-            background: rgba(5, 5, 5, 0.85); /* Slight overlay */
-            backdrop-filter: blur(5px);
-        }
-
-        #message-section.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .letter-container {
-            max-width: 700px;
-            padding: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            background: rgba(20, 20, 20, 0.6);
-            text-align: center;
-            transform: scale(0.9);
-            transition: transform 1.5s ease;
-        }
-
-        #message-section.visible .letter-container {
-            transform: scale(1);
-        }
-
-        .letter-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #dcdcdc;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        /* --- BUTTONS --- */
-        .btn-enter {
-            padding: 15px 40px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #d4af37;
-            background: transparent;
-            border: 1px solid #d4af37;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            opacity: 0; /* Start hidden */
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            z-index: 10;
-        }
-
-        .btn-enter:hover {
-            background: #d4af37;
-            color: #050505;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Audio Control */
-        .audio-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.3s;
-        }
-
-        .audio-control:hover {
-            color: #d4af37;
-        }
-
-        .audio-icon {
-            font-size: 1.2rem;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .intro-text { font-size: 2.5rem; }
-            .sub-text { font-size: 1rem; }
-            .letter-container { padding: 20px; width: 90%; }
-            .letter-content p { font-size: 1rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Background Particles Canvas -->
-    <canvas id="particles-canvas"></canvas>
+    <!-- Background Particles Container -->
+    <div id="particles-js"></div>
 
-    <!-- Audio Element (Hidden) -->
-    <!-- Note: Replace 'src' with a local file or a URL. I have provided a placeholder. -->
+    <!-- Background Music -->
+    <!-- Replace 'assets/music.mp3' with your own file -->
     <audio id="bg-music" loop>
-        <!-- Using a royalty-free piano clip from a CDN for demonstration purposes -->
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=music-box-101 -chandelier-110287.mp3" type="audio/mpeg">
+        <source src="assets/music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Music Toggle Button -->
-    <button class="audio-control" id="music-btn">
-        <span class="audio-icon">&#9834;</span> <span id="music-text">Play Music</span>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
+        <span class="icon">♫</span>
+        <span class="tooltip">Play Music</span>
     </button>
 
-    <!-- SECTION 1: WELCOME SCREEN -->
-    <div id="welcome-section" class="section">
-        <h1 class="intro-text" id="main-title">Welcome Priya</h1>
-        <p class="sub-text" id="sub-title">Some names are special. Yours is unforgettable.</p>
-        <button class="btn-enter" id="enter-btn">Enter</button>
-    </div>
+    <!-- Section 1: Intro -->
+    <section id="intro" class="screen">
+        <div class="content-wrapper">
+            <h1 id="main-title" class="title">Welcome Priya</h1>
+            <p id="sub-title" class="subtitle">Some names are special. Yours is unforgettable.</p>
+            <button id="enter-btn" class="enter-button">Enter</button>
+        </div>
+    </section>
 
-    <!-- SECTION 2: HEARTFELT MESSAGE -->
-    <div id="message-section" class="section">
+    <!-- Section 2: The Message -->
+    <section id="message" class="screen hidden">
         <div class="letter-container">
-            <h2 class="gold-text" style="margin-bottom: 30px; font-size: 2rem;">Dear Priya,</h2>
-            <div class="letter-content">
-                <p>There are moments in life that feel like they were written in the stars. Meeting you was one of them.</p>
-                <p>Your name isn't just a word; it's a feeling—gentle, warm, and incredibly strong. It rolls off the tongue like a favorite melody.</p>
-                <p>I wanted to create a small digital space, dedicated to the beauty you bring into the world. Not with grand gestures, but with a moment of peace and clarity.</p>
-                <p>Just as these particles float in the vast dark universe, wandering until they find their light, I hope you always find your light.</p>
-                <p class="gold-text" style="margin-top: 40px; font-family: 'Playfair Display', serif; font-style: italic;">With love,</p>
+            <p class="salutation">Priya,</p>
+            
+            <div class="poem">
+                <p>Some people walk into life quietly</p>
+                <p>and change everything without trying.</p>
+            </div>
+
+            <p class="body-text">
+                There is something rare about you.<br>
+                It is not loud, not dramatic, but <span class="highlight">unforgettable</span>.
+            </p>
+            
+            <p class="body-text">
+                This page exists for one simple reason — <br>
+                because you do.
+            </p>
+
+            <div class="signature">
+                With sincere admiration,
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // --- 1. ANIMATION SEQUENCING ---
-        document.addEventListener("DOMContentLoaded", () => {
-            const title = document.getElementById('main-title');
-            const sub = document.getElementById('sub-title');
-            const btn = document.getElementById('enter-btn');
-
-            // Animation Timings
-            setTimeout(() => {
-                title.style.opacity = '1';
-                title.style.transform = 'translateY(0)';
-            }, 1000); // 1s delay after load
-
-            setTimeout(() => {
-                sub.style.opacity = '1';
-                sub.style.transform = 'translateY(0)';
-            }, 2500); // 2.5s delay
-
-            setTimeout(() => {
-                btn.style.opacity = '1';
-            }, 4000); // 4s delay
-        });
-
-        // --- 2. TRANSITION TO MESSAGE ---
-        const enterBtn = document.getElementById('enter-btn');
-        const welcomeSec = document.getElementById('welcome-section');
-        const messageSec = document.getElementById('message-section');
-        const paragraphs = document.querySelectorAll('.letter-content p');
-
-        enterBtn.addEventListener('click', () => {
-            // Hide Welcome
-            welcomeSec.classList.add('hidden');
-            
-            // Show Message
-            messageSec.classList.add('visible');
-
-            // Staggered fade-in for paragraphs
-            paragraphs.forEach((p, index) => {
-                setTimeout(() => {
-                    p.style.opacity = '1';
-                }, 1500
+    <script src="script.js"></script>
+</body>
+</html>
