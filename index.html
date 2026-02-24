@@ -3,50 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Chat Room</title>
+<title>For Priya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
-
 </head>
 <body>
 
-<div id="loginScreen" class="login-screen">
-  <div class="glass-card">
-    <h2>Select Character</h2>
+<div class="bg-glow"></div>
 
-    <select id="characterSelect">
-      <option value="">Choose</option>
-      <option value="Priya">Priya</option>
-      <option value="Raj">Raj</option>
-      <option value="Aarushi">Aarushi</option>
-    </select>
+<section class="hero">
+  <h1 id="mainTitle">Welcome Priya.</h1>
+  <p class="subtitle" id="line1">I’ve been waiting for you.</p>
+  <p class="subtitle" id="line2">Some connections don’t announce themselves.</p>
+  <p class="subtitle" id="line3">They just start meaning more.</p>
+</section>
 
-    <input type="password" id="passwordInput" placeholder="Enter Password">
-    <button onclick="login()">Enter Room</button>
-    <p id="loginMessage"></p>
-  </div>
-</div>
+<section class="moments">
+  <h2>Moments</h2>
 
-<div id="chatApp" class="hidden">
-
-  <div class="chat-header">
-    <h3>Private Room</h3>
-    <span id="activeUser"></span>
+  <div class="moment-card">
+    <h3>The First Hello</h3>
+    <p>It felt normal. It wasn’t.</p>
   </div>
 
-  <div id="chatBox" class="chat-box"></div>
-
-  <div class="chat-input">
-    <input type="text" id="messageInput" placeholder="Type message..." onkeydown="handleKey(event)">
-    <button onclick="sendMessage()">Send</button>
+  <div class="moment-card">
+    <h3>Random Conversations</h3>
+    <p>Somehow they became important.</p>
   </div>
 
-</div>
+  <div class="moment-card">
+    <h3>Unexpected Smiles</h3>
+    <p>That’s when something shifted.</p>
+  </div>
+
+  <div class="moment-card">
+    <h3>Somewhere It Changed</h3>
+    <p>Without noise. Without warning.</p>
+  </div>
+</section>
+
+<section class="love-meter">
+  <button onclick="startMeter()">Curious?</button>
+  <div class="meter">
+    <div id="progress"></div>
+  </div>
+  <p id="meterText"></p>
+</section>
+
+<section class="final">
+  <div class="overlay">
+    <p>This might be one sided.</p>
+    <p>But it’s honest.</p>
+    <p>And sometimes honesty is enough.</p>
+    <h3>— Raj</h3>
+  </div>
+</section>
 
 <script src="script.js"></script>
 </body>
