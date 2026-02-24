@@ -1,79 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Priya</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Priya</title>
+    <!-- Google Fonts: Playfair Display (Elegant Serif) & Lato (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Floating Sparkles -->
-<div class="sparkles"></div>
+    <!-- Background Sparkles Container -->
+    <div id="sparkles"></div>
 
-<!-- ENTRY SCREEN -->
-<div id="entryScreen" class="entry-screen">
-  <div class="glass-card">
-    <h2>This page is made for someone special.</h2>
-    <input type="text" id="nameInput" placeholder="Enter your name" />
-    <button onclick="checkName()">Enter</button>
-    <p id="response"></p>
-  </div>
-</div>
+    <!-- SECTION 1: The Gate (Entry Screen) -->
+    <section id="gate-screen" class="screen active">
+        <div class="gate-content">
+            <h1 class="gate-title">For Someone Special</h1>
+            <p class="gate-subtitle">This space is private. Enter your name to proceed.</p>
+            
+            <div class="input-group">
+                <input type="text" id="name-input" placeholder="Enter your name" autocomplete="off">
+                <button id="enter-gate-btn">Enter</button>
+            </div>
+            <p id="gate-message" class="hidden">I was waiting for you.</p>
+        </div>
+    </section>
 
-<!-- MAIN CONTENT -->
-<div id="mainContent" class="hidden">
+    <!-- SECTION 2: Main Experience (Hidden initially) -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Welcome -->
+        <section id="welcome" class="content-section">
+            <h2 class="fade-in-element">Hi Priya.</h2>
+            <p class="fade-in-element delay-1">Some connections don’t announce themselves.</p>
+            <p class="fade-in-element delay-2">They just start meaning more.</p>
+        </section>
 
-  <!-- Welcome Section -->
-  <section class="hero">
-    <h1 class="reveal">Hi Priya.</h1>
-    <p class="reveal delay">Some connections don’t announce themselves.</p>
-    <p class="reveal delay2">They just start meaning more.</p>
-  </section>
+        <!-- Moments Timeline -->
+        <section id="timeline" class="content-section">
+            <h3 class="section-title">Our Moments</h3>
+            <div class="timeline-container">
+                
+                <!-- Moment 1 -->
+                <div class="timeline-item" data-text="The first hello. Simple. Unforgettable.">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">The First Hello</div>
+                    <div class="timeline-content glass-card">
+                        <p>The first hello. Simple. Unforgettable.</p>
+                    </div>
+                </div>
 
-  <!-- Timeline -->
-  <section class="timeline">
-    <h2>Moments</h2>
-    <div class="timeline-item" onclick="toggleMessage(this)">
-      The First Hello
-      <span class="timeline-msg">It looked simple. It wasn’t.</span>
-    </div>
-    <div class="timeline-item" onclick="toggleMessage(this)">
-      Random Conversations
-      <span class="timeline-msg">Somehow they became important.</span>
-    </div>
-    <div class="timeline-item" onclick="toggleMessage(this)">
-      Unexpected Smiles
-      <span class="timeline-msg">That’s when something quietly changed.</span>
-    </div>
-    <div class="timeline-item" onclick="toggleMessage(this)">
-      Somewhere It Changed
-      <span class="timeline-msg">And I didn’t even notice when.</span>
-    </div>
-  </section>
+                <!-- Moment 2 -->
+                <div class="timeline-item" data-text="Words that didn't need a context. Just presence.">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Random Conversations</div>
+                    <div class="timeline-content glass-card">
+                        <p>Words that didn't need a context. Just presence.</p>
+                    </div>
+                </div>
 
-  <!-- Love Meter -->
-  <section class="love-section">
-    <button onclick="startMeter()">Curious?</button>
-    <div class="meter">
-      <div id="progressBar"></div>
-    </div>
-    <p id="meterText"></p>
-  </section>
+                <!-- Moment 3 -->
+                <div class="timeline-item" data-text="That one smile that changed the weather inside me.">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Unexpected Smiles</div>
+                    <div class="timeline-content glass-card">
+                        <p>That one smile that changed the weather inside me.</p>
+                    </div>
+                </div>
 
-  <!-- Final Section -->
-  <section class="final">
-    <div class="overlay">
-      <p class="fade-final">This might be one sided.</p>
-      <p class="fade-final delay">But it’s honest.</p>
-      <p class="fade-final delay2">And sometimes honesty is enough.</p>
-      <h3>— Raj</h3>
-    </div>
-  </section>
+                <!-- Moment 4 -->
+                <div class="timeline-item" data-text="When I realized I didn't want to know the end.">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Somewhere It Changed</div>
+                    <div class="timeline-content glass-card">
+                        <p>When I realized I didn't want to know the end.</p>
+                    </div>
+                </div>
 
-</div>
+            </div>
+        </section>
 
-<script src="script.js"></script>
+        <!-- The Meter -->
+        <section id="meter-section" class="content-section">
+            <h3 class="section-title">Curious?</h3>
+            <div class="meter-container glass-card">
+                <div class="meter-wrapper">
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                    <span class="meter-label">0%</span>
+                </div>
+                <p class="meter-text">Still growing.</p>
+            </div>
+        </section>
+
+        <!-- The Confession -->
+        <section id="confession" class="content-section">
+            <div class="confession-box">
+                <p class="fade-text">This might be one sided.</p>
+                <p class="fade-text delay-s">But it’s honest.</p>
+                <p class="fade-text delay-l">And sometimes honesty is enough.</p>
+                <div class="signature">— Raj</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
